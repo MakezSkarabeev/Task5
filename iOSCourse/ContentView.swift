@@ -26,33 +26,22 @@ struct ContentView: View {
         .overlay() {
             ZStack {
                 Rectangle()
-                    .fill(.black)
-                    .blendMode(.hue)
-
-                Rectangle()
-                    .fill(.gray)
-                    .blendMode(.colorBurn)
-                Rectangle()
-                    .fill(.gray)
-                    .blendMode(.colorDodge)
-                Rectangle()
-                    .fill(.gray)
-                    .blendMode(.colorBurn)
-                Rectangle()
-                    .fill(.gray)
-                    .blendMode(.colorDodge)
-                Rectangle()
-                    .fill(.gray)
-                    .blendMode(.colorDodge)
-                Rectangle()
-                    .fill(.gray)
-                    .blendMode(.colorDodge)
-                Rectangle()
-                    .fill(.gray)
-                    .blendMode(.colorDodge)
-                Rectangle()
                     .fill(.white)
                     .blendMode(.difference)
+                    .overlay(
+                        Rectangle()
+                            .blendMode(.hue)
+                    )
+                    .overlay(
+                        Rectangle()
+                            .fill(.white)
+                            .blendMode(.overlay)
+                    )
+                    .overlay(
+                        Rectangle()
+                            .fill(.black)
+                            .blendMode(.overlay)
+                    )
             }
             .cornerRadius(10)
             .frame(width: 100, height: 100)
@@ -70,43 +59,6 @@ struct ContentView: View {
         }
     }
 }
-
-//
-//struct ContentView: View {
-//    @State private var amount = 0.0
-//
-//    var body: some View {
-//        VStack {
-//            ZStack {
-//                Circle()
-//                    .fill(.red)
-//                    .frame(width: 200 * amount)
-//                    .offset(x: -50, y: -80)
-//                    .blendMode(.multiply)
-//
-//                Circle()
-//                    .fill(.green)
-//                    .frame(width: 200 * amount)
-//                    .offset(x: 50, y: -80)
-//                    .blendMode(.multiply)
-//
-//                Circle()
-//                    .fill(.white)
-//                    .frame(width: 200 * amount)
-//
-//                    .blendMode(.destinationOut)
-//
-//            }
-//            .frame(width: 300, height: 300)
-//
-//            Slider(value: $amount)
-//                .padding()
-//        }
-//        .frame(maxWidth: .infinity, maxHeight: .infinity)
-//        .background(.yellow)
-//        .ignoresSafeArea()
-//    }
-//}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
